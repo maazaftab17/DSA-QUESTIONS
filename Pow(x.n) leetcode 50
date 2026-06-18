@@ -1,0 +1,41 @@
+class Solution {
+    public double myPow(double x, int n) {
+        // 1. Edge cases check karo sabse pehle
+        if (n == 0 || x == 1) return 1.0;
+        if (x == 0) return 0.0;
+        if (x == -1) {
+            // Agar n even hai toh 1.0, agar odd hai toh -1.0
+            return (n % 2 == 0) ? 1.0 : -1.0;
+        }
+
+        // 2. Integer overflow se bachne ke liye long use karo
+        // Kyunki agar n = -2147483648 hai, toh usko +ve karne par int overflow ho jayega
+        long binform = n;
+        
+        // 3. Agar power negative hai, toh base ko ulta (1/x) kar do 
+        // aur power ko positive bana do
+        if (n < 0) {
+            x = 1 / x;
+            binform = -binform;
+        }
+
+        double ans = 1;
+        
+        // 4. Binary Exponentiation loop (Main logic)
+        while (binform > 0) {
+            // Agar current bit 1 hai (yaani power odd hai), 
+            // toh ans ko current x se multiply karo
+            if (binform % 2 == 1) {
+                ans *= x;
+            }
+            
+            // Har step pe base ko square (x * x) karo
+            x *= x;          
+            
+            // Power ko 2 se divide karke aage badho (Next binary bit check karne ke liye)
+            binform /= 2;    
+        }
+        
+        return ans;
+    }
+}
