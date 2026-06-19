@@ -80,3 +80,6 @@ class Solution {
         System.out.println("Result: " + solver.coinChange(coins, amount)); // Expected Output: 3
     }
 }
+
+
+time complexcity---0(N)
