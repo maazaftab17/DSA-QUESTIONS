@@ -17,3 +17,7 @@ public class Solution {
         return reversed.toString();
     }
 }
+
+
+Time Complexity: O(N)
+Space Complexity: O(N)
