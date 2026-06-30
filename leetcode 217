@@ -1,0 +1,51 @@
+
+// BRUTE FORCE SOLUTION 
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+
+        int n= nums.length;
+
+        for(int i=0; i< n-1; i++){
+            for(int j= i+1; j<n; j++){
+                if(nums [i] == nums[j])
+                    return true;
+                }
+            }
+            return false;
+        
+        
+    }
+}
+
+
+// TIME COMPLEXCITY --O(n2)
+
+// SPACE COMPLEXCITY -- O(N)
+
+
+
+
+
+// --OPTIMAL SOLTUION 
+
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        
+        Map<Integer, Boolean> vector = new HashMap<>();
+
+        for (var num : nums) {
+          
+            if (vector.containsKey(num)) {
+                return true; 
+            }
+            vector.put(num, true);
+        }
+        return false;
+    }
+}
+
+//Time Complexity: O(n)
+//space Complecity : O(n)
+
