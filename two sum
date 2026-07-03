@@ -1,0 +1,25 @@
+import java.util.HashMap;
+import java.util.Map;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // Map to store: { number -> its_index }
+        Map<Integer, Integer> seen = new HashMap<>();
+        
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            
+            // If the complement is already in the map, we found our match
+            if (seen.containsKey(complement)) {
+                return new int[] { seen.get(complement), i };
+            }
+            
+            // Otherwise, track the current number and its index
+            seen.put(nums[i], i);
+        }
+        
+        // The problem guarantees exactly one solution, 
+        // but we return an empty array or throw an exception as a fallback.
+        throw new IllegalArgumentException("No two sum solution found");
+    }
+}
