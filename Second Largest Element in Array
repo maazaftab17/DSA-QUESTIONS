@@ -1,0 +1,21 @@
+// BETTER SOLUTION 
+
+** 1st pass **
+int Largest= a[0];
+
+    for(int i=0; i<a.length; i++){
+        if (a[0]>Largest){
+            Largest=a[i];
+        }
+    }
+
+** 2nd pass **
+    int Slargest=arr[0];
+  for(int i=0; i<a.length; i++){
+        if (a[i]>Slargest && a[i]!=Slargest){
+            Slargest=a[i];
+        }
+    }
+  System.out.Println(Slargest);
+Time Complexity: O(N)
+Space Complexity: O(1)
