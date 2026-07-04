@@ -1,0 +1,23 @@
+
+int largest = a[0]; 
+
+for (int i = 1; i < a.length; i++) {
+    if (a[i] > largest) {
+        largest = a[i];
+    }
+}
+
+System.out.println(largest);
+
+
+
+
+*************LOGICS------***********
+
+⏱️ Time Complexity: O(N)
+💾 Space Complexity: O(1)
+
+Sabse pehle, hum assume karte hain ki array ka pehla element (a[0]) hi sabse bada hai. Isko largest naam ke variable mein store kar lete hain.
+Phir ek for loop chalate hain index 1 se lekar array ke end tak (a.length - 1).
+Har iteration (step) par hum condition check karte hain: Kya current element a[i] hamare largest se bada hai?
+Agar bada hai, toh hum largest ki value ko naye element se update kar dete hain. Jab loop khatam hota hai, toh largest ke andar pure array ki sabse maximum value bach jati hai
