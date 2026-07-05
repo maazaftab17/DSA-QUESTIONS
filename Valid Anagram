@@ -24,3 +24,20 @@ class Solution {
         
     }
 }
+Time Complexity: O(m+n)
+Space Complexity: O(1)
+
+Code Kaise Kaam Kar Raha Hai? (Step-by-Step):
+Length Check:
+Sabse pehle hum dono strings ki length (m aur n) check karte hain. Agar dono ki length hi barabar nahi hai, toh woh kabhi anagram nahi ho sakte. Hum turant false return kar dete hain.
+Frequency Array (The Count Bucket):
+Hum ek int count[] array banate hain jiska size 26 hota hai (kyunki English mein 26 lowercase alphabets hote hain).
+String s ko Read Karna:
+Hum ek loop chalate hain string s par. Har character ki numeric index nikalne ke liye hum s.charAt(i) - 'a' karte hain (jaise 'a'-'a' = 0, 'b'-'a' = 1).
+Us index par jaakar hum value ko ++ (increase) kar dete hain. Matlab hum s ke saare characters ka hisab rakh rahe hain.
+String t ko Read Karna:
+Phir hum string t par loop chalate hain. Is baar, jo bhi character milta hai, uski index par jaakar hum value ko -- (decrease) kar dete hain.
+Logic: Agar dono strings mein koi character same number of times aaya hai, toh pehle loop ka ++ aur dusre loop ka -- milkar balance ho jayega aur value wapas 0 ho jayegi.
+Final Verification:
+Akhir mein, hum apne 26-size ke count array ko check karte hain. Agar array ka koi bhi element 0 nahi hai (yaani > 0 ya < 0), iska matlab characters match nahi huye. Hum false return kar dete hain.
+Agar saare elements 0 hain, toh match perfect hai! Hum true return kar dete hain.
